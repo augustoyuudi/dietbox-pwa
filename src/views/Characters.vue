@@ -1,10 +1,11 @@
 <template lang="pug">
   .characters-view
-    ul
-      li(
-        v-for="character in characters"
-        :key="character.name"
-      ) {{ character.name }}
+    p ola mundo
+    //- ul
+    //-   li(
+    //-     v-for="character in characters"
+    //-     :key="character.name"
+    //-   ) {{ character.name }}
     p {{ characters[0] }}
 </template>
 
@@ -21,11 +22,13 @@ export default {
   },
   methods: {
     async fetchCharacters() {
-      const url = 'https://swapi.dev/api/people/?page=2';
+      const url = 'https://swapi.dev/api/people/1';
       const response = await fetch(url, {
         method: 'GET',
       });
-      this.characters = (await response.json()).results;
+      console.log(response);
+      // this.characters = (await response.json()).results;
+      // this.characters.push(await response.json());
     },
   },
 };
