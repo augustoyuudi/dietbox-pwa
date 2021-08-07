@@ -5,7 +5,7 @@ import router from './router';
 import store from './store';
 
 // Global styles
-import './styles/global/reset.styl';
+import './styles/globals/reset.styl';
 
 Vue.config.productionTip = false;
 
