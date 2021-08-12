@@ -1,7 +1,7 @@
 <template lang='pug'>
   main.view
     Loader(v-show='loading')
-    .character-details(v-if='!loading')
+    .character-details(v-if='!loading && character')
       section.character-details__introduction
         h1.character-details__name {{ character.name }}
         span \#{{ paddedCharacterID(character.url) }}

@@ -1,7 +1,7 @@
 <template lang='pug'>
   main.view.character
     Loader(v-show='loading')
-    template(v-if='!loading')
+    template(v-if='!loading && characters.length')
       LiveSearch(
         @filter-data='filterCharactersByName'
         placeholder='Buscar personagem'
