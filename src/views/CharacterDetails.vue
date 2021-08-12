@@ -70,24 +70,30 @@ export default {
       } catch (error) {
         // eslint-disable-next-line
         alert(`Erro na requisicao para STRAPI: ${error}`);
-      } finally {
         this.loading = false;
       }
     },
 
     loadCharacterFilmsData() {
-      const filmsPromises = this.character.films.map((film) => fetch(film, { method: 'GET' }));
+      try {
+        this.loading = true;
+        const filmsPromises = this.character.films.map((film) => fetch(film, { method: 'GET' }));
 
-      Promise.all(filmsPromises)
-        .then((values) => {
+        Promise.all(filmsPromises).then((values) => {
           this.processFilmsData(values);
         });
+      } catch (error) {
+        // eslint-disable-next-line
+        alert(`Erro na requisicao para STRAPI: ${error}`);
+        this.loading = false;
+      }
     },
 
     processFilmsData(films) {
       films.forEach(async (film) => {
         this.films.push(await film.json());
       });
+      this.loading = false;
     },
   },
 };
