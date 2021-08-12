@@ -1,6 +1,10 @@
 <template lang='pug'>
   header.navbar
-    img.navbar__logo(src='@/assets/star-wars-logo.svg' alt='Star Wars logo')
+    router-link(to='/')
+      img.navbar__logo(
+        src='@/assets/star-wars-logo.svg'
+        alt='Star Wars logo'
+      )
     ThemeToggler(
       @toggle-theme='toggleTheme'
     )
