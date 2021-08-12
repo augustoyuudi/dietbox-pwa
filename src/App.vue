@@ -1,33 +1,20 @@
-<template lang="pug">
-  #app(:class="[currentTheme]")
-    theme-toggler(
-      @toggle-theme="toggleTheme"
-    )
+<template lang='pug'>
+  #app(:class='[currentTheme]')
+    Navbar
     router-view
 </template>
 
 <script>
-import ThemeToggler from '@/components/ThemeToggler.vue';
+import { mapGetters } from 'vuex';
+import Navbar from '@/components/Navbar.vue';
 
 export default {
   components: {
-    ThemeToggler,
+    Navbar,
   },
 
-  data() {
-    return {
-      currentTheme: null,
-    };
-  },
-
-  methods: {
-    toggleTheme(theme) {
-      this.currentTheme = theme;
-    },
+  computed: {
+    ...mapGetters('User', ['currentTheme']),
   },
 };
 </script>
-
-<style lang="stylus">
-@import '~@/styles/app'
-</style>
