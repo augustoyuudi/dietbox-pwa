@@ -1,10 +1,25 @@
+$default-width = 320px
+$card-height = 350px
+
 .character-details
   display flex
   flex-direction column
   align-items center
   gap 20px 0
-  width 320px
+  width $default-width
   margin 0 auto
+
+  @media screen and (min-width 1024px)
+    flex-direction row
+    flex-wrap wrap
+    gap 40px 10px
+    width 100%
+    justify-content center
+
+  &__introduction
+    @media screen and (min-width 1024px)
+      text-align center
+      flex-basis 100%
 
   &__name
     display inline-block
@@ -12,9 +27,16 @@
     margin-right .5rem
 
   &__avatar
-    width 320px
-    height 350px
+    width $default-width
+    height $card-height
     background-color $orange1
+
+  h2
+    font-size 1.5rem
+    text-align center
+
+    @media screen and (min-width 1024px)
+      flex-basis 100%
 
   .films
     width 100%
@@ -22,11 +44,19 @@
     flex-direction column
     gap 15px 0
 
+    @media screen and (min-width 1024px)
+      flex-direction row
+      flex-wrap wrap
+      align-items center
+      justify-content space-around
+      width 80%
+
     &__film
       display flex
       justify-content space-between
       gap 0 1rem
       padding 1rem
+      min-width $default-width
 
     &__title
       font-size 1.2rem
