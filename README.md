@@ -1,4 +1,4 @@
-# <p align="center">Dietbox PWA</p>
+# <p align="center">Star Wars API PWA</p>
 ### <p align="center">https://dietbox-pwa.web.app/</p>
 
 ## Sobre o projeto
